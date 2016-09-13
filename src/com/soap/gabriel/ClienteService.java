@@ -1,7 +1,5 @@
 package com.soap.gabriel;
 
-import java.util.List;
-
 import javax.jws.WebService;
 
 //WebService implementation
