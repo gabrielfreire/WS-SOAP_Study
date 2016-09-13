@@ -17,7 +17,10 @@ public class ClienteRepository {
 		System.out.println("added : " + addedCliente.getNome());
 		return "Cliente adicionado : " + addedCliente.getNome();
 	}
-	
+	/*
+	 * The List interface must be transformed into a Array of Cliente in order to JAXB work
+	 * JAXB doesn't support interfaces! FUCK! 
+	 */
 	public Cliente[] listClientes(){
 		Cliente[] ar = new Cliente[clientes.size()];
 		int i = 0;

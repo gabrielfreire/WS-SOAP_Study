@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+//WebService implementation
+
 @WebService(endpointInterface = "com.soap.gabriel.IClienteService")
 public class ClienteService implements IClienteService {
 	
@@ -12,7 +14,10 @@ public class ClienteService implements IClienteService {
 	public ClienteService(){
 		this.clienteRepository = new ClienteRepository();
 	}
-	
+	/*
+	 * Gettin' the Array from the Repo and formatting into a String to show on console
+	 * p.s. I did this for testing purposes
+	 */
 	@Override
 	public String listarClientes(){
 		Cliente[] clientes = clienteRepository.listClientes();

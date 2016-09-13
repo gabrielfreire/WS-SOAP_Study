@@ -7,8 +7,9 @@ public class Cliente {
 	private int codigo;
 	
 	public Cliente(String nome){
+		//i wanted to generate a random number from 0 to 100 for the Client ID
 		Random num = new Random();
-		this.codigo = num.nextInt(1000);
+		this.codigo = num.nextInt(100);
 		this.nome = nome;
 	}
 	
