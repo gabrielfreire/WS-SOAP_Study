@@ -1,0 +1,31 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ClienteServiceService WSDL service -->
+
+  <service name="ClienteService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://gabriel.soap.com"/>
+      <parameter name="wsdlServiceElement" value="ClienteServiceService"/>
+      <parameter name="schemaQualified" value="http://gabriel.soap.com"/>
+      <parameter name="wsdlServicePort" value="ClienteService"/>
+      <parameter name="className" value="com.soap.gabriel.ClienteServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ClienteService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="salvarCliente" qname="operNS:salvarCliente" xmlns:operNS="http://gabriel.soap.com" soapAction="" >
+        <parameter qname="pns:nome" xmlns:pns="http://gabriel.soap.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="listarClientes" qname="operNS:listarClientes" xmlns:operNS="http://gabriel.soap.com" returnQName="retNS:listarClientesReturn" xmlns:retNS="http://gabriel.soap.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="listarClientes salvarCliente"/>
+
+  </service>
+</deployment>
